@@ -1,15 +1,19 @@
-function PostService($http) {
+function PostService($resource) {
+
   this.getPosts = function() {
-    return $http.get('http://localhost:3000/api/v1/posts.json');
+    return $resource('http://localhost:3000/api/v1/posts.json');
   }
 
   this.getPostById = function(id) {
-    return $http.get('http://localhost:3000/api/v1/posts/'+id+'.json')
+    return $resource('http://localhost:3000/api/v1/posts/'+id+'.json');
   }
 
-  this.newPost = function(post) {
-    return $http.post('http://localhost:3000/api/v1/posts/new.json', data: post)
-  }
+  // this.newPost = function(post) {
+  //   return $http.post('http://localhost:3000/api/v1/posts/new.json', post)
+  //     .success(function(response) {
+  //       console.log('new post successful!');
+  //     });
+  // }
 }
 
 angular

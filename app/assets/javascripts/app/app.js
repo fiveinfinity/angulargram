@@ -22,9 +22,9 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     .state('home.posts', {
       url: 'posts',
       templateUrl: 'posts/posts.html',
-      controller: 'PostController as post',
+      controller: 'PostsController as posts',
       resolve: {
-        post: function(PostService) {
+        posts: function(PostService) {
           return PostService.getPosts();
         }
       }
@@ -44,7 +44,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     .state('home.new', {
       url: 'posts/new',
       templateUrl: 'posts/new.html',
-      controller: 'NewPostController as new'
+      controller: 'NewController as new',
     });
     $urlRouterProvider.otherwise('/');
   });

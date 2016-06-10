@@ -1,1 +1,8 @@
 <h1>new post</h1>
+
+
+<form ng-submit="new.newPost()">
+  desc: <input type="text" ng-model="new.post.description"/>
+  user_id: <input type="text" ng-model="new.post.user_id">
+  <input type="submit" value="add post">
+</form>
