@@ -39,12 +39,12 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
           return PostService.getPostById($stateParams.id);
         }
       }
-    })
-    //NEW POST
-    .state('home.new', {
-      url: 'posts/new',
-      templateUrl: 'posts/new.html',
-      controller: 'NewController as new',
     });
+    //NEW POST
+  //   .state('home.new', {
+  //     url: 'posts/new',
+  //     templateUrl: 'posts/new.html',
+  //     controller: 'NewController as new',
+  //   });
     $urlRouterProvider.otherwise('/');
   });

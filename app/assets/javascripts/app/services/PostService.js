@@ -7,13 +7,6 @@ function PostService($resource) {
   this.getPostById = function(id) {
     return $resource('http://localhost:3000/api/v1/posts/'+id+'.json');
   }
-
-  // this.newPost = function(post) {
-  //   return $http.post('http://localhost:3000/api/v1/posts/new.json', post)
-  //     .success(function(response) {
-  //       console.log('new post successful!');
-  //     });
-  // }
 }
 
 angular

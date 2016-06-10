@@ -9,13 +9,15 @@ module Api
       def show
         respond_with(Post.find(params[:id]))
       end
+
+      def upload
+        @id = params[:id]
+        @post = Post.new
+      end
+
       def create
-        @post = Post.new(post_params)
-        if @post.save
-          respond_to do |format|
-            format.json { render :json => @post }
-          end
-        end
+        @post = Post.create!(post_params)
+        redirect_to root_path
       end
       def update
         @post = Post.find(params[:id])

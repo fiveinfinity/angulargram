@@ -2,10 +2,11 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'bower-rails'
-gem 'paperclip'
 gem 'responders'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
+
+gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
