@@ -18,6 +18,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       templateUrl: 'auth/register.html',
       controller: 'AuthController'
     })
+    //ALL POSTS
     .state('home.posts', {
       url: 'posts',
       templateUrl: 'posts/posts.html',
@@ -28,6 +29,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
         }
       }
     })
+    //SHOW POST
     .state('home.post', {
       url: 'post/:id',
       templateUrl: 'posts/post.html',
@@ -37,6 +39,12 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
           return PostService.getPostById($stateParams.id);
         }
       }
+    })
+    //NEW POST
+    .state('home.new', {
+      url: 'posts/new',
+      templateUrl: 'posts/new.html',
+      controller: 'NewPostController as new'
     });
     $urlRouterProvider.otherwise('/');
   });
