@@ -1,9 +1,10 @@
-{{"joe" + " MARIA"}}
-
   <h1>AngularGram</h1>
 
 
   <button ui-sref="home.login">login</button>
   <button ui-sref="home.register">register</button>
+  <p>Welcome, {{ user.email }}</p>
+  <a href="" ng-click="logout()">logout</a>
+
 
 <div ui-view></div>

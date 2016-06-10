@@ -4,7 +4,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     .state('home', {
       url: '/',
       templateUrl: 'home.html',
-      controller: 'HomeController as ctrl'
+      controller: 'HomeController'
     })
     .state('home.login', {
       url: 'login',
