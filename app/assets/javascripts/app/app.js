@@ -21,10 +21,20 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     .state('home.posts', {
       url: 'posts',
       templateUrl: 'posts/posts.html',
-      controller: 'PostsController as posts',
+      controller: 'PostController as post',
       resolve: {
-        posts: function(PostService) {
-          return PostService;
+        post: function(PostService) {
+          return PostService.getPosts();
+        }
+      }
+    })
+    .state('home.post', {
+      url: 'post/:id',
+      templateUrl: 'posts/post.html',
+      controller: 'PostController as post',
+      resolve: {
+        post: function($stateParams, PostService) {
+          return PostService.getPostById($stateParams.id);
         }
       }
     });
