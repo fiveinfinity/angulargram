@@ -5,6 +5,7 @@ function HomeController($scope, Auth) {
 
   Auth.currentUser()
     .then(function(user) {
+      $scope.user = user;
       console.log(user);
     });
 
@@ -22,10 +23,10 @@ function HomeController($scope, Auth) {
     console.log('logged out');
   });
 
-  $scope.$on('devise:unauthorized', function(event, xhr, deferred) {
-    console.log('unauthorized!');
-    $state.go('home');
-  });
+  // $scope.$on('devise:unauthorized', function(event, xhr, deferred) {
+  //   console.log('unauthorized!');
+  //   $state.go('home');
+  // });
 }
 
 angular
