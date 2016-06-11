@@ -26,3 +26,20 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+
+
+//Picture Resizing
+Categories / Category Page (POSTS CONTROLLER/ POSTS.HTML, CATEGORY.SHOW)
+//Comments on Photo show page
+
+Comment on Show Validation
+Edit Description validation
+
+Navbar
+Picture Component
+
+Fix nested views
+fix $http/$resource
+Change views based on your login, if needed

@@ -2,3 +2,7 @@
 {{post.data.description}}
 
 <image src="{{post.data.photo}}"></image>
+
+<div ng-repeat="comment in post.data.comments">
+  {{comment.content}}
+</div>

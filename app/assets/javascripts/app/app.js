@@ -26,6 +26,12 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       resolve: {
         posts: function(PostService) {
           return PostService.getPosts();
+        },
+        comments: function(CommentService) {
+          return CommentService.getComments();
+        },
+        categories: function(CategoryService) {
+          return CategoryService.getCategories();
         }
       }
     })
@@ -37,6 +43,20 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       resolve: {
         post: function($stateParams, PostService) {
           return PostService.getPostById($stateParams.id);
+        },
+        comments: function(CommentService) {
+          return CommentService.getComments();
+        }
+      }
+    })
+    //SHOW CATEGORY
+    .state('home.category', {
+      url: 'category/:id',
+      templateUrl: 'category/show.html',
+      controller: 'CategoryController as category',
+      resolve: {
+        category: function($stateParams, CategoryService) {
+          return CategoryService.getCategoryById($stateParams.id);
         }
       }
     })
