@@ -1,10 +1,14 @@
-function PostsController(posts, comments, Auth) {
+function PostsController(posts, comments, categories, Auth) {
   var ctrl = this;
 
   Auth.currentUser()
     .then(function(user) {
       ctrl.user = user;
     });
+
+  categories.query({}, function(data) {
+    ctrl.categories = data;
+  })
 
   posts.query({}, function(data) {
     ctrl.data = data;
