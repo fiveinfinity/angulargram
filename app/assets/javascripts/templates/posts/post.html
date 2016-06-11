@@ -3,12 +3,9 @@
 <div ng-repeat="comment in post.data.comments">
   {{comment.content}}
 </div>
-{{post}}
 
 <form ng-submit="post.newComment()">
   <label>Add a Comment</label>
   <input type="text" ng-model="post.comment.content"/>
-  <input type="hidden" ng-model="post.comment.user_id" name="user_id" value="post.user.id">
-  <input type="hidden" ng-model="post.comment.post_id" name="post_id" value="post.data.id">
   <input type="submit" value="add comment"/>
 </form>

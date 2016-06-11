@@ -1,4 +1,4 @@
-function PostController(post, comments, Auth, CommentFactory, $location) {
+function PostController(post, comments, Auth, $state, $http, $scope, $stateParams) {
   var ctrl = this;
   ctrl.data = post.get();
 
@@ -16,17 +16,15 @@ function PostController(post, comments, Auth, CommentFactory, $location) {
       });
   });
 
-  ctrl.comment = new CommentFactory();
+  ctrl.comment = {};
 
   ctrl.newComment = function() {
-    console.log('inside');
-    console.log(ctrl.comment);
-      ctrl.comment.$save(function() {
-      $location.path('post');
-    })
+    ctrl.comment.user_id = ctrl.user.id;
+    ctrl.comment.post_id = ctrl.data.id;
+    $http.post('/api/v1/comments.json', ctrl.comment).then(function(res) {
+      $state.go($state.current, {}, {reload:true});
+    });
   }
-
-
 }
 
 angular
