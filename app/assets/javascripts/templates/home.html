@@ -5,6 +5,7 @@
   <button ui-sref="home.register">register</button>
   <button ui-sref="home.posts">all posts</button>
   <a href="/posts/upload/{{user.id}}">new post</a>
+  <button ui-sref="home.profile({id: user.id})">profile</button>
 
 
   <p>Welcome, {{ user.email }}</p>

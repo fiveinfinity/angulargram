@@ -1,0 +1,16 @@
+<h1>ur profile</h1>
+
+{{user}}
+
+<!-- <p>Pick a username: </p>
+<form ng-submit="submit()">
+  <input type="text" ng-model="profile.username">
+  <input type="submit" value="Submit Username">
+</form> -->
+<button ng-click="profile.getPosts()">get posts</button>
+<div ng-repeat="data in profile.data">
+
+<image src="{{data.photo}}">{{data.description}}</image>
+<button ui-sref="home.edit({id: data.id})">EDIT THIS POST</button>
+
+</div>

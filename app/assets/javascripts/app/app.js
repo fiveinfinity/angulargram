@@ -20,7 +20,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     })
     //ALL POSTS
     .state('home.posts', {
-      url: 'posts',
+      url: '/',
       templateUrl: 'posts/posts.html',
       controller: 'PostsController as posts',
       resolve: {
@@ -39,12 +39,28 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
           return PostService.getPostById($stateParams.id);
         }
       }
+    })
+    //PROFILE
+    .state('home.profile', {
+      url: 'profile/:id',
+      templateUrl: 'profile.html',
+      controller: 'ProfileController as profile',
+      resolve: {
+        posts: function($stateParams, PostService) {
+          return PostService.getPosts();
+        }
+      }
+    })
+    //EDIT POST
+    .state('home.edit', {
+      url: 'posts/edit/:id',
+      templateUrl: 'posts/edit.html',
+      controller: 'EditController as edit',
+      // resolve: {
+      //   post: function($stateParams, PostService) {
+      //     return PostService.getPostById($stateParams.id);
+      //   }
+      // }
     });
-    //NEW POST
-  //   .state('home.new', {
-  //     url: 'posts/new',
-  //     templateUrl: 'posts/new.html',
-  //     controller: 'NewController as new',
-  //   });
     $urlRouterProvider.otherwise('/');
   });

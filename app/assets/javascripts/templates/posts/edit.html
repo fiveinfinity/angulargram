@@ -1,0 +1,12 @@
+<h1>edit your post</h1>
+<image src="{{edit.data.photo}}"></image>
+
+
+<form ng-submit="edit.updatePost()">
+  <input type="text" placeholder="{{edit.data.description}}" ng-model="edit.data.description">
+  <input type="submit" value="Edit Description">
+</form>
+
+
+
+<button ng-click="edit.delete()">DELETE POST</button>
