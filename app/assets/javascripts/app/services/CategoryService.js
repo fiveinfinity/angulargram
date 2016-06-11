@@ -3,7 +3,7 @@ function CategoryService($resource) {
     return $resource('/api/v1/categories.json');
   }
 
-  this.getCategoriesById = function(id) {
+  this.getCategoryById = function(id) {
     return $resource('/api/v1/categories/'+id+'.json');
   }
 }

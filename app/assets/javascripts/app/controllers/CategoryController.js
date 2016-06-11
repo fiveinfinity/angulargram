@@ -1,5 +1,7 @@
-function CategoryController() {
+function CategoryController(category) {
+  var ctrl = this;
 
+  ctrl.category = category.get();
 }
 
 angular

@@ -3,7 +3,7 @@
 <input ng--model="posts.search">
 
 <div ng-repeat="category in posts.categories">
-  {{category.title}}
+  <a href="" ui-sref="home.category({id: category.id})">{{category.title}}</a>
 </div>
 
 

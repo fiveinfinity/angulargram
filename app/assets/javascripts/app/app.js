@@ -75,12 +75,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     .state('home.edit', {
       url: 'posts/edit/:id',
       templateUrl: 'posts/edit.html',
-      controller: 'EditController as edit',
-      // resolve: {
-      //   post: function($stateParams, PostService) {
-      //     return PostService.getPostById($stateParams.id);
-      //   }
-      // }
+      controller: 'EditController as edit'
     });
     $urlRouterProvider.otherwise('/');
   });
