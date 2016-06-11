@@ -1,2 +1,6 @@
 <h1>category show page</h1>
 {{category.category.title}}
+<div ng-repeat="post in category.posts">
+  <image src="{{ post.photo }}"></image>
+  <a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a>
+</div>

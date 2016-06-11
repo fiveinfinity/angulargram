@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20160611172822) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "description"
     t.integer  "user_id"
@@ -39,13 +46,6 @@ ActiveRecord::Schema.define(version: 20160611172822) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-  end
-
-  create_table "posts_categories", force: :cascade do |t|
-    t.integer  "post_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

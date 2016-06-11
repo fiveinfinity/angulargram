@@ -57,6 +57,9 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       resolve: {
         category: function($stateParams, CategoryService) {
           return CategoryService.getCategoryById($stateParams.id);
+        },
+        posts: function(PostService) {
+          return PostService.getPosts();
         }
       }
     })
@@ -66,7 +69,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       templateUrl: 'profile.html',
       controller: 'ProfileController as profile',
       resolve: {
-        posts: function($stateParams, PostService) {
+        posts: function(PostService) {
           return PostService.getPosts();
         }
       }

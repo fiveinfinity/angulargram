@@ -5,6 +5,12 @@
   <%= f.file_field :photo %><br>
   <%= f.label :description %>
   <%= f.text_field :description %><br>
+  <%= f.label :category %><br>
+    <%= f.collection_select :category_ids, Category.all, :id, :title, prompt: "Choose a Category" %><br><br>
+    Or create your own category: <br>
+    <%= f.fields_for :categories, @post.categories.build do |field| %>
+      <%= field.text_field :title %><br><br>
+    <% end %>
   <%= f.hidden_field :user_id, value: @id %>
   <%= f.submit %>
 <% end %>

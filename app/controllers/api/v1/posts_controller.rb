@@ -6,7 +6,7 @@ module Api
       def index
         respond_with(Post.all.order("id DESC"))
       end
-      
+
       def show
         respond_with(Post.find(params[:id]))
       end
@@ -34,7 +34,7 @@ module Api
       end
       private
         def post_params
-          params.require(:post).permit(:description, :user_id, :photo)
+          params.require(:post).permit(:description, :user_id, :photo, :category_ids, categories_attributes: [:title])
         end
     end
   end
