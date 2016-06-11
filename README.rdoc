@@ -31,8 +31,9 @@ Please feel free to use a different markup language if you do not plan to run
 
 
 //Picture Resizing
-Categories / Category Page -- get all posts per categories (add category_id, to post, allow ability to add categories to posts )
+//Categories / Category Page -- get all posts per categories (add category_id, to post, allow ability to add categories to posts )
 //Comments on Photo show page
+Comment count on category and posts pages
 
 Comment on Show Validation
 Edit Description validation

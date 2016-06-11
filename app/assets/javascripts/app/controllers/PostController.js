@@ -1,4 +1,4 @@
-function PostController(post, comments, Auth) {
+function PostController(post, comments, Auth, CommentFactory, $location) {
   var ctrl = this;
   ctrl.data = post.get();
 
@@ -15,6 +15,16 @@ function PostController(post, comments, Auth) {
         }
       });
   });
+
+  ctrl.comment = new CommentFactory();
+
+  ctrl.newComment = function() {
+    console.log('inside');
+    console.log(ctrl.comment);
+      ctrl.comment.$save(function() {
+      $location.path('post');
+    })
+  }
 
 
 }
