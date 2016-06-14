@@ -1,4 +1,4 @@
-function PostsController(posts, comments, categories, Auth) {
+function PostsController($scope, posts, comments, categories, Auth) {
   var ctrl = this;
 
   Auth.currentUser()
@@ -20,7 +20,6 @@ function PostsController(posts, comments, categories, Auth) {
       post["comments"] = [];
       data.forEach(function(comment) {
         if(comment.post_id === post.id) {
-          console.log(post.comments);
           post.comments.push(comment);
         }
       });

@@ -1,16 +1,16 @@
-  <h1>AngularGram</h1>
+<h1>AngularGram</h1>
 
+<button ui-sref="home">home</button>
 
   <button ui-sref="home.login">login</button>
   <button ui-sref="home.register">register</button>
-  <button ui-sref="home.posts">all posts</button>
-  <a href="/posts/upload/{{user.id}}">new post</a>
-  <button ui-sref="home.profile({id: user.id})">profile</button>
 
+<button ui-sref="home.posts">all posts</button>
+<a href="/posts/upload/{{user.id}}">new post</a>
+<button ui-sref="home.profile({id: user.id})">profile</button><br>
 
-  <p>Welcome, {{ user.email }}</p>
-  <a href="" ng-click="logout()">logout</a>
+  <p ng-model-options="{ updateOn: 'default blur', debounce: {'default': 1000, 'blur': 0} }">Welcome, {{ user.email }}</p>
+  <a href="" ng-click="logout()">logout</a><br>
 
-
-
+<b>WELCOME TO ANGULARGRAM. GIVE US YOUR PHOTOS.</b>
 <div ui-view></div>

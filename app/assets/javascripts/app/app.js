@@ -20,7 +20,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     })
     //ALL POSTS
     .state('home.posts', {
-      url: '/',
+      url: 'posts',
       templateUrl: 'posts/posts.html',
       controller: 'PostsController as posts',
       resolve: {
@@ -56,10 +56,13 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       controller: 'CategoryController as category',
       resolve: {
         category: function($stateParams, CategoryService) {
-          return CategoryService.getCategoryById($stateParams.id);
+          return CategoryService.getCategoryById($stateParams.id).get().$promise;
         },
         posts: function(PostService) {
-          return PostService.getPosts();
+          return PostService.getPosts().query().$promise;
+        },
+        comments: function(CommentService) {
+          return CommentService.getComments().query().$promise;
         }
       }
     })

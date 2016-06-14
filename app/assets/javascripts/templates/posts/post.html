@@ -1,11 +1,22 @@
 <h1>  SHOW POST</h1>
+
 <image src="{{post.data.photo}}"></image>
+{{post.data.description}}
 <div ng-repeat="comment in post.data.comments">
   {{comment.content}}
 </div>
 
-<form ng-submit="post.newComment()">
+<form name="form" ng-submit="post.newComment()">
   <label>Add a Comment</label>
-  <input type="text" ng-model="post.comment.content"/>
+  <input type="text" required="required" name="content" ng-model="post.comment.content"/>
+
+
+
   <input type="submit" value="add comment"/>
+
+  <div ng-if="form.content.$touched">
+    <div ng-if="form.content.$error.required">
+      COMMENT IS REQUIRED! NICE TRY!
+    </div>
+  </div>
 </form>

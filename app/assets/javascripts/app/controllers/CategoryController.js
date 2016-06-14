@@ -1,18 +1,19 @@
-function CategoryController(category, posts) {
+function CategoryController(category, posts, comments, SortPostService, SortCommentsService) {
   var ctrl = this;
+  ctrl.category = category;
 
-  ctrl.category = category.get();
+  // GETS ALL CATEGORIES' POSTS, SANS COMMENTS
+  ctrl.getPosts = function() {
+    return SortPostService.getSortedPosts(posts, ctrl.category);
+  }
+  ctrl.nonCommentedPosts = ctrl.getPosts();
 
-  posts.query({}, function(res) {
-    ctrl.posts = [];
-    res.forEach(function(post) {
-      post.categories.forEach(function(category) {
-        if(category.id === ctrl.category.id) {
-          ctrl.posts.push(post);
-        }
-      })
-    })
-  });
+  // GETS ALL COMMENTS FOR EACH POST, RETURNS NEW POSTS.
+  ctrl.getComments = function() {
+    return SortCommentsService.getSortedComments(ctrl.nonCommentedPosts, comments);
+  }
+
+  ctrl.posts = ctrl.getComments();
 }
 
 angular
