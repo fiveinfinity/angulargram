@@ -23,24 +23,18 @@ Things you may want to cover:
 
 * ...
 
-
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+TODO
+
+BUGS
+Comments - Show Page - not always showing
+home page comment.length
+Search Bar
 
 
-
-//Picture Resizing
-//Categories / Category Page -- get all posts per categories (add category_id, to post, allow ability to add categories to posts )
-//Comments on Photo show page
-Comment count on category and posts pages
-
-Comment on Show Validation
-Edit Description validation
-
-Navbar
-Picture Component
-
-Fix nested views
-fix $http/$resource
-Change views based on your login, if needed
+CSS/LAYOUT
+move edit button in profile
+New Page CSS, Navbar
+Login/Register

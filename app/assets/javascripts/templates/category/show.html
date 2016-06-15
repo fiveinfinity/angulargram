@@ -1,10 +1,11 @@
-<h1>category show page</h1>
-{{category.category.title}}
+<h1 align="center">{{category.category.title}}</h1>
+
+<hr>
 
 <div ng-repeat="post in category.posts">
-  <image src="{{ post.photo }}"></image>
-  <a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a>
-
-  <p>{{post.comments.length}}  comments</p>
-
+  <div class="col-md-12 postpad">
+    <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
+    <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
+    <h5>{{post.comments.length}} COMMENTS</h5>
+  </div>
 </div>

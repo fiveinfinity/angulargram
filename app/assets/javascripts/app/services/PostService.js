@@ -1,5 +1,4 @@
 function PostService($resource) {
-
   this.getPosts = function() {
     return $resource('http://localhost:3000/api/v1/posts.json');
   }

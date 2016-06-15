@@ -3,6 +3,9 @@ function PostController(post, comments, Auth, $state, $http, $scope, $stateParam
   ctrl.data = post.get();
   ctrl.comment = {};
 
+  $scope.signedIn = Auth.isAuthenticated;
+  $scope.logout = Auth.logout;
+
   Auth.currentUser()
     .then(function(user) {
       ctrl.user = user;

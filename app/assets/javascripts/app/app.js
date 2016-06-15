@@ -4,8 +4,13 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     //HOME BASE
     .state('home', {
       url: '/',
-      templateUrl: 'home.html',
-      controller: 'HomeController'
+      abstract: true,
+      views: {
+        "": {
+          templateUrl: 'home.html',
+          controller: 'HomeController'
+        }
+      }
     })
     //DEVISE
     .state('home.login', {
@@ -20,9 +25,13 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     })
     //ALL POSTS
     .state('home.posts', {
-      url: 'posts',
-      templateUrl: 'posts/posts.html',
-      controller: 'PostsController as posts',
+      url: '',
+      views: {
+        "posts@home": {
+          templateUrl: 'posts/posts.html',
+          controller: 'PostsController as posts'
+        }
+      },
       resolve: {
         posts: function(PostService) {
           return PostService.getPosts();
@@ -38,7 +47,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
     //SHOW POST
     .state('home.post', {
       url: 'post/:id',
-      templateUrl: 'posts/post.html',
+      templateUrl: 'posts/show.html',
       controller: 'PostController as post',
       resolve: {
         post: function($stateParams, PostService) {

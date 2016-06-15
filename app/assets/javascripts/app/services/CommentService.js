@@ -1,5 +1,4 @@
 function CommentService($resource) {
-
   this.getComments = function() {
     return $resource('/api/v1/comments.json');
   }

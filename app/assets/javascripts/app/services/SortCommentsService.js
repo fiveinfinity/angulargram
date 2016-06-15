@@ -1,5 +1,4 @@
 function SortCommentsService() {
-
   this.getSortedComments = function(posts, comments) {
     posts.forEach(function(post) {
       post["comments"] = [];

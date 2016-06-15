@@ -1,8 +1,17 @@
-<h1>ur profile</h1>
+<h1 align="center">Hello, {{profile.user.email}}.</h1>
+
+<hr>
+
+<div class="add-btn">
+  <a href="/posts/upload/{{user.id}}" class="btn btn-default">Add a Photo</a>
+</div>
+
+<hr>
 
 <div ng-repeat="data in profile.data">
-
-<image src="{{data.photo}}">{{data.description}}</image>
-<button ui-sref="home.edit({id: data.id})">EDIT THIS POST</button>
-
+  <div class="col-md-12 postpad">
+    <a href="" ui-sref="home.post({id: data.id})"><image src="{{ data.photo }}"></image></a><br>
+      <h4><a href="" ui-sref="home.post({id: data.id})">{{ data.description }}</a></h4>
+      <button class="btn btn-default" ui-sref="home.edit({id: data.id})">EDIT</button>
+  </div>
 </div>

@@ -7,6 +7,9 @@ gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'jquery-rails'
+gem 'sprockets'
+
 
 gem 'paperclip'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,5 +1,4 @@
 function SortPostService() {
-
   this.getSortedPosts = function(posts, category) {
     var sortedArray = [];
     posts.forEach(function(post) {
