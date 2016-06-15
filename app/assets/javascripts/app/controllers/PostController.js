@@ -1,6 +1,6 @@
-function PostController(post, comments, Auth, $state, $http, $scope, $stateParams) {
+function PostController(post, comments, Auth, $state, $http, $scope, $stateParams, SortCommentsService) {
   var ctrl = this;
-  ctrl.data = post.get();
+  ctrl.data = post;
   ctrl.comment = {};
 
   $scope.signedIn = Auth.isAuthenticated;
@@ -11,15 +11,12 @@ function PostController(post, comments, Auth, $state, $http, $scope, $stateParam
       ctrl.user = user;
     });
 
-  comments.query({}, function(res) {
-    ctrl.data["comments"] = [];
-    res.forEach(function(comment) {
-      if(comment.post_id === ctrl.data.id) {
-        ctrl.data.comments.push(comment);
-      }
-    });
-    $scope.$digest();
-  });
+  // GETS ALL COMMENTS FOR POST, RETURNS NEW POST WITH COMMENTS.
+  ctrl.getComments = function() {
+    return SortCommentsService.getSortedCommentsForPost(ctrl.data, comments);
+  }
+
+  ctrl.data = ctrl.getComments();
 
   //NECESSARY DUE TO PAGE RELOAD IF NOT INSIDE A FUNCTION
   ctrl.addHiddenData = function() {
@@ -27,6 +24,7 @@ function PostController(post, comments, Auth, $state, $http, $scope, $stateParam
     ctrl.comment.post_id = ctrl.data.id;
   }
 
+  //PATCHES NEW COMMENT TO COMMENTS MODEL, RETURNS TO SHOW PAGE. $SCOPE.$APPLY().
   ctrl.newComment = function() {
     ctrl.addHiddenData();
     $http.post('/api/v1/comments.json', ctrl.comment).then(function() {

@@ -10,6 +10,15 @@ function SortCommentsService() {
     return posts;
   }
 
+  this.getSortedCommentsForPost = function(post, comments) {
+    post["comments"] = [];
+    comments.forEach(function(comment) {
+      if(comment.post_id === post.id)
+      post.comments.push(comment);
+    });
+  return post;
+  }
+
 }
 
 angular

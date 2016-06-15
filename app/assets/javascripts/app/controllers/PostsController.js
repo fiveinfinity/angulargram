@@ -1,4 +1,4 @@
-function PostsController($scope, posts, comments, categories, Auth) {
+function PostsController($scope, posts, comments, categories, Auth, SortCommentsService) {
   var ctrl = this;
 
   Auth.currentUser()
@@ -6,25 +6,17 @@ function PostsController($scope, posts, comments, categories, Auth) {
       ctrl.user = user;
     });
 
-  categories.query({}, function(data) {
-    ctrl.categories = data;
-  })
+  ctrl.categories = categories;
+  //ctrl.data IS POSTS. I KNOW, I KNOW....
+  ctrl.data = posts;
 
-  posts.query({}, function(data) {
-    ctrl.data = data;
+  // GETS ALL COMMENTS FOR EACH POST, RETURNS NEW POSTS.
+  ctrl.getComments = function() {
+    return SortCommentsService.getSortedComments(ctrl.data, comments);
+  }
 
-  });
-
-  comments.query({}, function(data) {
-    ctrl.data.forEach(function(post) {
-      post["comments"] = [];
-      data.forEach(function(comment) {
-        if(comment.post_id === post.id) {
-          post.comments.push(comment);
-        }
-      });
-    });
-  });
+  //REASSIGNING POSTS.
+  ctrl.data = ctrl.getComments();
 }
 
 angular

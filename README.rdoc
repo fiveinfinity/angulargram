@@ -29,10 +29,6 @@ Please feel free to use a different markup language if you do not plan to run
 TODO
 
 BUGS
-Comments - Show Page - not always showing
-home page comment.length
-Search Bar
-
 
 CSS/LAYOUT
 move edit button in profile

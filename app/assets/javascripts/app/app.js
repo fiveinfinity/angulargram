@@ -34,13 +34,13 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       },
       resolve: {
         posts: function(PostService) {
-          return PostService.getPosts();
+          return PostService.getPosts().query().$promise;
         },
         comments: function(CommentService) {
-          return CommentService.getComments();
+          return CommentService.getComments().query().$promise;
         },
         categories: function(CategoryService) {
-          return CategoryService.getCategories();
+          return CategoryService.getCategories().query().$promise;
         }
       }
     })
@@ -51,10 +51,10 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       controller: 'PostController as post',
       resolve: {
         post: function($stateParams, PostService) {
-          return PostService.getPostById($stateParams.id);
+          return PostService.getPostById($stateParams.id).get().$promise;
         },
         comments: function(CommentService) {
-          return CommentService.getComments();
+          return CommentService.getComments().query().$promise;
         }
       }
     })
