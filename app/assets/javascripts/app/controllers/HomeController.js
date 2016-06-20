@@ -1,4 +1,4 @@
-function HomeController($scope, Auth) {
+function HomeController($scope, Auth, $state) {
 
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
@@ -18,6 +18,7 @@ function HomeController($scope, Auth) {
 
   $scope.$on('devise:logout', function(event, currentUser) {
     $scope.user = {};
+    $state.go('home.posts');
   });
 }
 

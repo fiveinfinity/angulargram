@@ -1,5 +1,5 @@
 <div class="search">
-  <input ng--model="posts.search" placeholder="Search...">
+  <input ng-model="posts.search" placeholder="Search...">
 </div>
 
 <hr>
@@ -14,8 +14,8 @@
 
 <div ng-repeat="post in posts.data | filter: posts.search">
   <div class="col-md-12 postpad">
-        <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
-        <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
-        <h5>{{post.comments.length}} COMMENTS</h5>
+    <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
+    <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
+    <h5>{{post.comments.length}} COMMENTS</h5>
   </div>
 </div>

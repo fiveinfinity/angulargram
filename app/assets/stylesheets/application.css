@@ -14,40 +14,40 @@
  *= require_self
  */
 
-.search {
-  margin: auto;
-  max-width: 100px;
-}
+ .search {
+   margin: auto;
+   max-width: 100px;
+ }
 
-.add-btn {
-  margin: auto;
-  max-width: 100px;
-}
+ .add-btn {
+   margin: auto;
+   max-width: 100px;
+ }
 
-.btn{
-  margin-left:20px;
-  margin-right: 20px;
-}
+ .btn{
+   margin-left:20px;
+   margin-right: 20px;
+ }
 
-.navbar {
-  padding-left: 20px;
-  padding-right: 20px;
-}
+ .navbar {
+   padding-left: 20px;
+   padding-right: 20px;
+ }
 
-.postpad {
-  margin-left: 30%;
-  margin-right: 30%;
-}
+ .postpad {
+   margin-left: 30%;
+   margin-right: 30%;
+ }
 
-.pills {
-  margin: auto;
-  max-width:525px;
-}
+ .pills {
+   margin: auto;
+   max-width:525px;
+ }
 
-.validation {
-  max-width: 350px;
-}
+ .validation {
+   max-width: 350px;
+ }
 
-.inline {
-  display: inline;
-}
+ .inline {
+   display: inline;
+ }

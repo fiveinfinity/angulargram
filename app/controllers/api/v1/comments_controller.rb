@@ -13,7 +13,9 @@ module Api
 
       def create
         @comment = Comment.create(comment_params)
-        redirect_to root_path
+        respond_to do |f|
+          f.json {render json: @comment }
+        end
       end
 
       private

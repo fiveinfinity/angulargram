@@ -27,10 +27,13 @@ function PostController(post, comments, Auth, $state, $http, $scope, $stateParam
   //PATCHES NEW COMMENT TO COMMENTS MODEL, RETURNS TO SHOW PAGE. $SCOPE.$APPLY().
   ctrl.newComment = function() {
     ctrl.addHiddenData();
-    $http.post('/api/v1/comments.json', ctrl.comment).then(function() {
-      $state.go($state.current, {}, {reload:true});
+    $http.post('/api/v1/comments.json', ctrl.comment).then(function(comment) {
+      // $state.go($state.current, {}, {reload:true});
+      ctrl.data.comments.push(comment.data);
+      console.log(ctrl.data.comments);
+
     });
-    $scope.$apply();
+    // $scope.$apply();
   }
 }
 

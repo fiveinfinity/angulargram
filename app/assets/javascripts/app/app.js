@@ -1,7 +1,7 @@
-angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
+angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.base64'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-    //HOME BASE
+    //HOME BASE- USING ABSTRACT TO RENDER CHILD VIEW IN INDEX.
     .state('home', {
       url: '/',
       abstract: true,
@@ -91,6 +91,17 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise'])
       url: 'posts/edit/:id',
       templateUrl: 'posts/edit.html',
       controller: 'EditController as edit'
+    })
+    //NEW POST
+    .state('home.new', {
+      url: 'posts/new',
+      templateUrl: 'posts/new.html',
+      controller: 'NewController as new',
+      resolve: {
+        categories: function(CategoryService) {
+          return CategoryService.getCategories().query().$promise
+        }
+      }
     });
     $urlRouterProvider.otherwise('/');
   });
