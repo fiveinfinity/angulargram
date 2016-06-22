@@ -1,6 +1,6 @@
 <form name="form" ng-submit="new.submit()">
   <input type="file" ng-model="new.post.photo" accept="image/*" base-sixty-four-input>
-  Description: <input type="text" name="description" ng-model="new.post.description" required="required"><br>
+  Description: <input type="text" name="description" ng-model="new.post.description" required="required" minlength="10"><br>
 
   <select ng-model="new.post.category_ids" ng-options="category.title for category in new.categories">
     <option value="">Choose a Category</option>
@@ -10,9 +10,8 @@
   <input type="submit" value="submit">
 
   <!-- VALIDATION FOR SUBMISSION -->
-  <div ng-if="form.description.$touched">
-    <div ng-if="form.description.$error.required" class="alert alert-danger validation">
-      <h5 class="">Description Required</h5>
-    </div>
+  <div ng-messages="form.description.$error" ng-if="form.description.$touched">
+    <div ng-message="required" class="alert alert-danger validation">A description is required!</div>
+    <div ng-message="minlength" class="alert alert-danger validation">Your description must be longer than 10 characters!</div>
   </div>
 </form>

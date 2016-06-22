@@ -12,15 +12,17 @@ module Api
       end
 
       def create
-        @comment = Comment.create(comment_params)
-        respond_to do |f|
-          f.json {render json: @comment }
+        @comment = Comment.new(comment_params, user_id: current_user.id)
+        if @comment.save
+          respond_to do |f|
+            f.json {render json: @comment }
+          end
         end
       end
 
       private
       def comment_params
-        params.require(:comment).permit(:user_id, :post_id, :content)
+        params.require(:comment).permit(:post_id, :content)
       end
     end
   end

@@ -8,10 +8,10 @@
 
 <hr>
 
-<div ng-repeat="data in profile.data">
+<div ng-repeat="post in profile.posts">
   <div class="col-md-12 postpad">
-    <a href="" ui-sref="home.post({id: data.id})"><image src="{{ data.photo }}"></image></a><br>
-      <h4><a href="" ui-sref="home.post({id: data.id})">{{ data.description }}</a></h4>
-      <button class="btn btn-default" ui-sref="home.edit({id: data.id})">EDIT</button>
+    <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
+      <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
+      <button class="btn btn-default" ui-sref="home.edit({id: post.id})">EDIT</button>
   </div>
 </div>

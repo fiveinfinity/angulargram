@@ -2,7 +2,7 @@
 
 <hr>
 
-<div ng-repeat="post in category.posts">
+<div ng-repeat="post in category.category.posts">
   <div class="col-md-12 postpad">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
     <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>

@@ -1,39 +1,21 @@
-function PostController(post, comments, Auth, $state, $http, $scope, $stateParams, SortCommentsService) {
+function PostController(post, Auth, $scope, CommentService) {
   var ctrl = this;
-  ctrl.data = post;
+  ctrl.post = post;
   ctrl.comment = {};
 
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
 
-  Auth.currentUser()
-    .then(function(user) {
-      ctrl.user = user;
-    });
-
-  // GETS ALL COMMENTS FOR POST, RETURNS NEW POST WITH COMMENTS.
-  ctrl.getComments = function() {
-    return SortCommentsService.getSortedCommentsForPost(ctrl.data, comments);
-  }
-
-  ctrl.data = ctrl.getComments();
-
-  //NECESSARY DUE TO PAGE RELOAD IF NOT INSIDE A FUNCTION
-  ctrl.addHiddenData = function() {
-    ctrl.comment.user_id = ctrl.user.id;
-    ctrl.comment.post_id = ctrl.data.id;
-  }
-
-  //PATCHES NEW COMMENT TO COMMENTS MODEL, RETURNS TO SHOW PAGE. $SCOPE.$APPLY().
+  //CREATES NEW COMMENT, POSTS VIA COMMENT_SERVICE.
   ctrl.newComment = function() {
-    ctrl.addHiddenData();
-    $http.post('/api/v1/comments.json', ctrl.comment).then(function(comment) {
-      // $state.go($state.current, {}, {reload:true});
-      ctrl.data.comments.push(comment.data);
-      console.log(ctrl.data.comments);
+    //ASSIGNS POST ID TO NEW COMMENT
+    ctrl.comment.post_id = ctrl.post.id;
 
+    CommentService.postComment(ctrl.comment).then(function(comment) {
+      ctrl.post.comments.push(comment.data);
     });
-    // $scope.$apply();
+    //RESETS COMMENT HASH SO THE FORM INPUT (NAME="COMMENT") WILL RESET.
+    ctrl.comment = {};
   }
 }
 

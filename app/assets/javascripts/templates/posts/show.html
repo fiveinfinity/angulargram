@@ -1,24 +1,21 @@
 <div class="col-md-12 postpad">
-  <image src="{{post.data.photo}}"></image>
-  <h4>{{post.data.description}}</h4>
-
-  <div ng-repeat="comment in post.data.comments">
+  <image src="{{post.post.photo}}"></image>
+  <h4>{{post.post.description}}</h4>
+  <div ng-repeat="comment in post.post.comments">
     {{comment.content}}
   </div>
 
   <!-- ADD A COMMENT -->
   <div ng-show="signedIn()">
     <form name="form" ng-submit="post.newComment()">
-      <input type="text" required="required" name="content" ng-model="post.comment.content"/>
+      <input type="text" required="required" minlength="3" name="content" ng-model="post.comment.content"/>
       <input type="submit" value="add comment" class="btn btn-default"/>
 
       <br><br>
 
         <!-- VALIDATION FOR COMMENT SUBMISSION -->
-        <div ng-if="form.content.$touched">
-          <div ng-if="form.content.$error.required" class="alert alert-danger validation">
-            <h5 class="">DON'T YOU WANT TO POST A COMMENT?</h5>
-          </div>
+        <div ng-messages="form.content.$error">
+          <div ng-message="minlength" class="alert alert-danger validation">Must be longer than 3 characters!</div>
         </div>
     </form>
   </div>

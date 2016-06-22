@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.base64'])
+angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.base64', 'ngMessages'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
     //HOME BASE- USING ABSTRACT TO RENDER CHILD VIEW IN INDEX.
@@ -36,9 +36,6 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
         posts: function(PostService) {
           return PostService.getPosts().query().$promise;
         },
-        comments: function(CommentService) {
-          return CommentService.getComments().query().$promise;
-        },
         categories: function(CategoryService) {
           return CategoryService.getCategories().query().$promise;
         }
@@ -52,9 +49,6 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       resolve: {
         post: function($stateParams, PostService) {
           return PostService.getPostById($stateParams.id).get().$promise;
-        },
-        comments: function(CommentService) {
-          return CommentService.getComments().query().$promise;
         }
       }
     })
@@ -66,12 +60,6 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       resolve: {
         category: function($stateParams, CategoryService) {
           return CategoryService.getCategoryById($stateParams.id).get().$promise;
-        },
-        posts: function(PostService) {
-          return PostService.getPosts().query().$promise;
-        },
-        comments: function(CommentService) {
-          return CommentService.getComments().query().$promise;
         }
       }
     })

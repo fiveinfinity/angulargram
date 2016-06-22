@@ -1,10 +1,9 @@
 function ProfileController($scope, posts, Auth, $resource) {
   var ctrl = this;
-  ctrl.data = [];
+  ctrl.posts = [];
 
   Auth.currentUser()
     .then(function(user) {
-      $scope.user = user;
       ctrl.user = user;
     });
 
@@ -13,7 +12,7 @@ function ProfileController($scope, posts, Auth, $resource) {
   var posts = Posts.query({}, function(res) {
     posts.forEach(function(post) {
       if (post.user_id === ctrl.user.id) {
-        ctrl.data.push(post);
+        ctrl.posts.push(post);
       }
     });
   });

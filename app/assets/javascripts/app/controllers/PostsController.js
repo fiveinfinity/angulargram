@@ -1,22 +1,7 @@
-function PostsController($scope, posts, comments, categories, Auth, SortCommentsService) {
+function PostsController(posts, categories) {
   var ctrl = this;
-
-  Auth.currentUser()
-    .then(function(user) {
-      ctrl.user = user;
-    });
-
   ctrl.categories = categories;
-  //ctrl.data IS POSTS. I KNOW, I KNOW....
-  ctrl.data = posts;
-
-  // GETS ALL COMMENTS FOR EACH POST, RETURNS NEW POSTS.
-  ctrl.getComments = function() {
-    return SortCommentsService.getSortedComments(ctrl.data, comments);
-  }
-
-  //REASSIGNING POSTS.
-  ctrl.data = ctrl.getComments();
+  ctrl.posts = posts;
 }
 
 angular
