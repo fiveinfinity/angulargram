@@ -6,16 +6,12 @@ module Api
 
       def index
         @categories = Category.all
-        respond_to do |f|
-          f.json {render json: @categories}
-        end
+        render json: @categories
       end
 
       def show
         @category = Category.find(params[:id])
-        respond_to do |f|
-          f.json {render json: @category}
-        end
+        render json: @category
       end
     end
   end

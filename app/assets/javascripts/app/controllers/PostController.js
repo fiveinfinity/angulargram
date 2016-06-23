@@ -6,9 +6,7 @@ function PostController(post, Auth, $scope, CommentService) {
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
 
-  //CREATES NEW COMMENT, POSTS VIA COMMENT_SERVICE.
   ctrl.newComment = function() {
-    //ASSIGNS POST ID TO NEW COMMENT
     ctrl.comment.post_id = ctrl.post.id;
 
     CommentService.postComment(ctrl.comment).then(function(comment) {

@@ -6,17 +6,13 @@ module Api
 
       def index
         @comments = Comment.all
-        respond_to do |f|
-          f.json {render json: @comments}
-        end
+        render json: @comments
       end
 
       def create
         @comment = Comment.new(comment_params, user_id: current_user.id)
         if @comment.save
-          respond_to do |f|
-            f.json {render json: @comment }
-          end
+          render json: @comment
         end
       end
 

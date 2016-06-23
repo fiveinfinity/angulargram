@@ -1,20 +1,11 @@
-function NewController($http, categories, Auth, $state) {
+function NewController(categories, Auth, $state, PostService) {
   var ctrl = this;
   ctrl.post = {};
   ctrl.categories = categories.data;
 
-  Auth.currentUser()
-    .then(function(user) {
-      ctrl.user = user;
-    });
-
-  // ctrl.addHiddenData = function() {
-  //   ctrl.post.user_id = ctrl.user.id;
-  // }
-
+  //transition not smooth from success to redirect
   ctrl.submit = function() {
-    // ctrl.addHiddenData();
-    $http.post('/api/v1/posts.json', ctrl.post).then(function() {
+    PostService.newPost(ctrl.post).success(function() {
       $state.go('home.posts');
     });
   }

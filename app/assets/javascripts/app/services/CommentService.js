@@ -1,5 +1,5 @@
 function CommentService($http) {
-  //USED IN POST CONTROLLER TO POST COMMENT.
+  //home.post
   this.postComment = function(comment) {
     return $http.post('/api/v1/comments.json', comment)
   }
