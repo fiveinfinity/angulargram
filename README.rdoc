@@ -25,8 +25,5 @@ Thanks for checking this out-
 NOTES:
 HTML/CSS
 Transition spinner when uploading photo??
-
-favorite feature:
-Favorite - post_id, user_id
-belongs to user, user has many favorites
-belongs to post, post has one favorite
+do i need to call ctrl in every template??
+Possibly Lazy Loader for home.posts
