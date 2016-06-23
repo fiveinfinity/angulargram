@@ -1,6 +1,6 @@
 function PostController(post, Auth, $scope, CommentService) {
   var ctrl = this;
-  ctrl.post = post;
+  ctrl.post = post.data;
   ctrl.comment = {};
 
   $scope.signedIn = Auth.isAuthenticated;

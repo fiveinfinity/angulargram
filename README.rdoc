@@ -32,3 +32,15 @@ user.favorites = [{post_id: X}, ]
 Favorite - post_id, user_id
 belongs to user
 belongs to post
+
+
+
+NOTES for NewCtrl:
+add current_user to rails create.
+refactor http call to service.
+
+Rewrite edit ctrl.
+
+Are Posts' categories_attributes being used in the model?
+
+Homectrl is getting user - see about only calling that in home.ctrl and using in nested views.

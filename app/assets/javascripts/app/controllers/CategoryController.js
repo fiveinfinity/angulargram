@@ -1,6 +1,6 @@
 function CategoryController(category) {
   var ctrl = this;
-  ctrl.category = category;
+  ctrl.category = category.data;
 }
 
 angular

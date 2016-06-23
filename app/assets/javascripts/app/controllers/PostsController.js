@@ -1,7 +1,7 @@
 function PostsController(posts, categories) {
   var ctrl = this;
-  ctrl.categories = categories;
-  ctrl.posts = posts;
+  ctrl.categories = categories.data;
+  ctrl.posts = posts.data;
 }
 
 angular

@@ -1,10 +1,11 @@
-function CategoryService($resource) {
+function CategoryService($http) {
+  //home.posts
   this.getCategories = function() {
-    return $resource('/api/v1/categories.json');
+    return $http.get('/api/v1/categories.json');
   }
-
+  //home.category
   this.getCategoryById = function(id) {
-    return $resource('/api/v1/categories/'+id+'.json');
+    return $http.get('/api/v1/categories/'+id+'.json');
   }
 }
 

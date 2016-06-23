@@ -1,18 +1,15 @@
-function EditController($stateParams, NewPostFactory, $state) {
+function EditController(post, $state, PostService) {
   var ctrl = this;
-  ctrl.data = NewPostFactory.get({id: $stateParams.id})
-  ctrl.id = ctrl.data.id;
+  ctrl.post = post.data;
 
   ctrl.updatePost = function() {
-    ctrl.data.$update({id: ctrl.data.id}, function() {
-      $state.go('home.profile');
-    });
+    PostService.updatePost(ctrl.post.id, ctrl.post);
+    $state.go('home.profile');
   }
 
   ctrl.delete = function() {
-    ctrl.data.$delete(function() {
-      $state.go('home.profile');
-    });
+    PostService.deletePost(ctrl.post.id);
+    $state.go('home.profile');
   }
 }
 

@@ -34,10 +34,10 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       },
       resolve: {
         posts: function(PostService) {
-          return PostService.getPosts().query().$promise;
+          return PostService.getPosts();
         },
         categories: function(CategoryService) {
-          return CategoryService.getCategories().query().$promise;
+          return CategoryService.getCategories();
         }
       }
     })
@@ -48,7 +48,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       controller: 'PostController as post',
       resolve: {
         post: function($stateParams, PostService) {
-          return PostService.getPostById($stateParams.id).get().$promise;
+          return PostService.getPostById($stateParams.id);
         }
       }
     })
@@ -59,7 +59,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       controller: 'CategoryController as category',
       resolve: {
         category: function($stateParams, CategoryService) {
-          return CategoryService.getCategoryById($stateParams.id).get().$promise;
+          return CategoryService.getCategoryById($stateParams.id);
         }
       }
     })
@@ -78,7 +78,12 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
     .state('home.edit', {
       url: 'posts/edit/:id',
       templateUrl: 'posts/edit.html',
-      controller: 'EditController as edit'
+      controller: 'EditController as edit',
+      resolve: {
+        post: function($stateParams, PostService) {
+          return PostService.getPostById($stateParams.id);
+        }
+      }
     })
     //NEW POST
     .state('home.new', {
@@ -87,7 +92,7 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       controller: 'NewController as new',
       resolve: {
         categories: function(CategoryService) {
-          return CategoryService.getCategories().query().$promise
+          return CategoryService.getCategories();
         }
       }
     });

@@ -1,20 +1,10 @@
-function ProfileController($scope, posts, Auth, $resource) {
+function ProfileController(posts, Auth, PostService) {
   var ctrl = this;
-  ctrl.posts = [];
 
-  Auth.currentUser()
-    .then(function(user) {
-      ctrl.user = user;
-    });
-
-  //GET USERS POSTS
-  var Posts = $resource('/api/v1/posts.json');
-  var posts = Posts.query({}, function(res) {
-    posts.forEach(function(post) {
-      if (post.user_id === ctrl.user.id) {
-        ctrl.posts.push(post);
-      }
-    });
+  //CALLING CTRL.POSTS INSIDE OF AUTH INSURES CTRL.USER.ID IS NOT UNDEFINED
+  Auth.currentUser().then(function(user) {
+    ctrl.user = user;
+    ctrl.posts = PostService.getUsersPosts(posts.data, ctrl.user.id);
   });
 }
 

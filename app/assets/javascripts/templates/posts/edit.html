@@ -1,12 +1,12 @@
 <h1 align="center">editor</h1>
 <div class="col-md-12 postpad">
-  <image src="{{edit.data.photo}}"></image>
+  <image src="{{edit.post.photo}}"></image>
 </div>
 
 <div class="col-md-12 postpad">
   <form ng-submit="edit.updatePost()">
     <br>
-    <input type="text" size="50" placeholder="{{edit.data.description}}" ng-model="edit.data.description">
+    <input type="text" size="50" placeholder="{{edit.post.description}}" ng-model="edit.post.description">
     <input class="btn btn-default" type="submit" value="Edit Description">
     <button class="btn btn-default" ng-click="edit.delete()">Delete Post</button>
   </form>
