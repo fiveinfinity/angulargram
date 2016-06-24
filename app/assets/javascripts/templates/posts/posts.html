@@ -22,9 +22,9 @@
     <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
     <h5>{{post.comments.length}} COMMENTS</h5>
 
-    <!-- <favorite post="post" user="posts.user"></favorite> -->
+    <favorite post="post" user="posts.user"></favorite>
 
-      <div ng-repeat="fav in post.favorites">
+      <!-- <div ng-repeat="fav in post.favorites">
         <div ng-if="fav.post_id === post.id && fav.user_id === posts.user.id">
           <img src="assets/red.png" height="30" width="30" ng-click="posts.destroyFavorite(fav.id, post)"/>
         </div>
@@ -32,6 +32,6 @@
 
       <div ng-if="post.favorites.length === 0">
         <img src="assets/white.png" height="30" width="30" ng-click="posts.postFavorite({post_id: post.id}, {post: post})"/>
-      </div>
+      </div> -->
   </div>
 </div>

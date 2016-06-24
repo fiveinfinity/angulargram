@@ -3,20 +3,27 @@ var Favorite = {
     post: '=',
     user: '='
   },
-  template: '<ng-include src="templateUrl()"/>',
-  controller: function(FavoriteService, $scope) {
+  templateUrl: 'components/favorite.html',
+  controller: function(FavoriteService) {
     var ctrl = this;
-    $scope.templateUrl = function() {
-      console.log(ctrl.user)
-      if (ctrl.post.user_id === ctrl.user.id) {
-        return '<b>favorited!!</b>';
-      } else {
-        return '<b>not a favorite.</b>';
-      }
+
+    ctrl.postFavorite = function(post_id, post) {
+      FavoriteService.postFavorite(post_id).then(function(favorite) {
+        post.post.favorites.push(favorite.data);
+      });
     }
 
-    // ctrl.post = FavoriteService.getUsersFavorites(post, user);
-  }
+    ctrl.destroyFavorite = function(id, post) {
+      FavoriteService.destroyFavorite(id).then(function() {
+        post.favorites.forEach(function(favorite) {
+          if(favorite.id === id) {
+            post.favorites.splice(favorite, 1);
+          }
+        })
+      });
+    }
+  },
+  controllerAs: 'favorite'
 }
 
 angular
