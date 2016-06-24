@@ -26,12 +26,12 @@
 
       <div ng-repeat="fav in post.favorites">
         <div ng-if="fav.post_id === post.id && fav.user_id === posts.user.id">
-          <button ng-click="posts.destroyFavorite(fav.id, post)">{{fav.id}}</button>
+          <img src="assets/red.png" height="30" width="30" ng-click="posts.destroyFavorite(fav.id, post)"/>
         </div>
       </div>
 
       <div ng-if="post.favorites.length === 0">
-        <button ng-click="posts.postFavorite({post_id: post.id}, {post: post})">{{post.favorites}}</button>
+        <img src="assets/white.png" height="30" width="30" ng-click="posts.postFavorite({post_id: post.id}, {post: post})"/>
       </div>
   </div>
 </div>

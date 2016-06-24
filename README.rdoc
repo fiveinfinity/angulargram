@@ -25,5 +25,6 @@ Thanks for checking this out-
 NOTES:
 HTML/CSS
 Transition spinner when uploading photo??
-do i need to call ctrl in every template??
 Possibly Lazy Loader for home.posts
+
+do i need to call ctrl in every template??
