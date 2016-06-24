@@ -12,11 +12,14 @@ module Api
 
       def create
         @favorite = Favorite.new(favorite_params)
-        if @favorite.save
+        if @favorite.save && current_user
           @favorite.update(user_id: current_user.id)
-          binding.pry
           render json: @favorite
         end
+      end
+
+      def destroy
+        respond_with Favorite.destroy(params[:id])
       end
 
       private
