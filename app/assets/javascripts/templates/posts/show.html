@@ -1,6 +1,7 @@
 <div class="col-md-12 postpad">
   <image src="{{post.post.photo}}"></image>
   <h4>{{post.post.description}}</h4>
+  <favorite ng-if="post.user" post="post.post" user="post.user"></favorite>
   <div ng-repeat="comment in post.post.comments">
     {{comment.content}}
   </div>

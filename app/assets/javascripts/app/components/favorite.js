@@ -7,6 +7,14 @@ var Favorite = {
   controller: function(FavoriteService) {
     var ctrl = this;
 
+    ctrl.getUsersFavorites = function() {
+      return ctrl.post.favorites.forEach(function(fav) {
+        if (fav.user_id !== ctrl.user.id) {
+          ctrl.post.favorites.splice(fav, 1);
+        }
+      });
+    }
+
     ctrl.postFavorite = function(post_id, post) {
       FavoriteService.postFavorite(post_id).then(function(favorite) {
         post.post.favorites.push(favorite.data);
@@ -22,6 +30,7 @@ var Favorite = {
         })
       });
     }
+    ctrl.getUsersFavorites();
   },
   controllerAs: 'favorite'
 }

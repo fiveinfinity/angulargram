@@ -20,11 +20,3 @@ In order to deploy this app, within the file directory please run:
 rails s
 
 Thanks for checking this out-
-
-
-NOTES:
-HTML/CSS
-Transition spinner when uploading photo??
-Possibly Lazy Loader for home.posts
-
-do i need to call ctrl in every template??

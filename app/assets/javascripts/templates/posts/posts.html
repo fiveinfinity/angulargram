@@ -12,26 +12,12 @@
 
 <hr>
 
-
-
-
-
 <div ng-repeat="post in posts.posts | filter: posts.search">
   <div class="col-md-12 postpad">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
     <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
     <h5>{{post.comments.length}} COMMENTS</h5>
 
-    <favorite post="post" user="posts.user"></favorite>
-
-      <!-- <div ng-repeat="fav in post.favorites">
-        <div ng-if="fav.post_id === post.id && fav.user_id === posts.user.id">
-          <img src="assets/red.png" height="30" width="30" ng-click="posts.destroyFavorite(fav.id, post)"/>
-        </div>
-      </div>
-
-      <div ng-if="post.favorites.length === 0">
-        <img src="assets/white.png" height="30" width="30" ng-click="posts.postFavorite({post_id: post.id}, {post: post})"/>
-      </div> -->
+    <favorite ng-if="posts.user" post="post" user="posts.user"></favorite>
   </div>
 </div>

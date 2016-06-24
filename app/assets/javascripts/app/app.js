@@ -66,11 +66,14 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
     //PROFILE
     .state('home.profile', {
       url: 'profile/:id',
-      templateUrl: 'profile.html',
+      templateUrl: 'profile/profile.html',
       controller: 'ProfileController as profile',
       resolve: {
         posts: function(PostService) {
           return PostService.getPosts();
+        },
+        user: function(Auth) {
+          return Auth.currentUser();
         }
       }
     })
@@ -93,6 +96,20 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       resolve: {
         categories: function(CategoryService) {
           return CategoryService.getCategories();
+        }
+      }
+    })
+    //USER'S FAVORITES
+    .state('home.favorites', {
+      url: 'profile/:id/favorites',
+      templateUrl: 'profile/favorites.html',
+      controller: 'FavoriteController as favorite',
+      resolve: {
+        posts: function(PostService) {
+          return PostService.getPosts();
+        },
+        user: function(Auth) {
+          return Auth.currentUser();
         }
       }
     });

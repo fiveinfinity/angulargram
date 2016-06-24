@@ -1,0 +1,16 @@
+NOTES:
+HTML/CSS
+NewController upload takes a long time.
+Possibly Lazy Loader for home.posts once I get enough posts going.
+
+todo:
+add login/register validation
+
+Research:
+logout function - doesn't refresh every time.
+
+Auth user, put in resolve:
+Category
+Home
+Post
+Posts

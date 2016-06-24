@@ -1,5 +1,5 @@
 <div ng-repeat="fav in favorite.post.favorites">
-  <div ng-if="fav.post_id === favorite.post.id && fav.user_id === favorite.user.id">
+  <div ng-if="fav.post_id === favorite.post.id">
     <img src="assets/red.png" height="30" width="30" ng-click="favorite.destroyFavorite(fav.id, favorite.post)"/>
   </div>
 </div>

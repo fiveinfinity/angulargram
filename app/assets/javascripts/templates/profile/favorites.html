@@ -1,13 +1,9 @@
-<h1 align="center">{{category.category.title}}</h1>
-
-<hr>
-
-<div ng-repeat="post in category.category.posts">
-  <div class="col-md-12 postpad">
+<div ng-repeat="post in favorite.posts" >
+  <div class="col-md-12 postpad" ng-if="post.favorites.length != 0">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
     <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
     <h5>{{post.comments.length}} COMMENTS</h5>
 
-    <favorite ng-if="category.user" post="post" user="category.user"></favorite>
+    <favorite post="post" user="favorite.user"></favorite>
   </div>
 </div>
