@@ -1,17 +1,17 @@
-<h1 align="center">Hello, {{profile.user.email}}.</h1>
+<h1 align="center">Hello, {{profile.user.email}}</h1>
 
 <hr>
 
 <div class="add-btn">
   <a href="" ui-sref="home.new" class="btn btn-default">Add a Photo</a>
-  <a href="" ui-sref="home.favorites({id: profile.user.id})" class="btn btn-default">{{profile.user.email}}'s Favorites</a>
+  <a href="" ui-sref="home.favorites({id: profile.user.id})" class="btn btn-default">Favorites</a>
 </div>
 
 <hr>
 
 <div ng-repeat="post in profile.posts">
 
-  <div class="col-md-12 postpad" ng-if="post">
+  <div class="postpad well" ng-if="post">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
       <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
       <button class="btn btn-default" ui-sref="home.edit({id: post.id})">EDIT</button>
