@@ -17,6 +17,10 @@
 
 <div ng-show="signedIn()">
   <div ui-view="posts"></div>
+  <div ui-view></div>
 </div>
 
-  <div ui-view></div>
+<div ng-hide="signedIn()">
+  <div ui-view="register"></div>
+  <div ui-view="login"></div>
+</div>

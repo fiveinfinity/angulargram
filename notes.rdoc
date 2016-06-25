@@ -5,8 +5,7 @@ Possibly Lazy Loader for home.posts once I get enough posts going.
 
 todo:
 add login/register validation
-fix logout redirect issue - works sometimes?
-refactor getUsersFavorites to FavoriteService
+refactor getUsersFavorites to FavoriteService...maybe? Can't find why its not working.
 
 Auth user, put in resolve:
 Category

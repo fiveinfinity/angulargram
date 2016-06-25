@@ -15,13 +15,21 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
     //DEVISE
     .state('home.login', {
       url: 'login',
-      templateUrl: 'auth/login.html',
-      controller: 'AuthController'
+      views: {
+        'login@home': {
+          templateUrl: 'auth/login.html',
+          controller: 'AuthController'
+        }
+      }
     })
     .state('home.register', {
       url: 'register',
-      templateUrl: 'auth/register.html',
-      controller: 'AuthController'
+      views: {
+        'register@home': {
+          templateUrl: 'auth/register.html',
+          controller: 'AuthController'
+        }
+      }
     })
     //ALL POSTS
     .state('home.posts', {
