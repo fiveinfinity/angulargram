@@ -17,6 +17,6 @@
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
     <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
     <h5>{{post.comments.length}} COMMENTS</h5>
-    <favorite ng-if="posts.user" post="post" user="posts.user"></favorite>
+    <favorite post="post" user="posts.user"></favorite>
   </div>
 </div>

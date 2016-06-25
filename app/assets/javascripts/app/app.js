@@ -38,9 +38,6 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
         },
         categories: function(CategoryService) {
           return CategoryService.getCategories();
-        },
-        user: function(Auth) {
-          return Auth.currentUser();
         }
       }
     })
