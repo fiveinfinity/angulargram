@@ -11,11 +11,6 @@ function FavoriteService($http, PostService) {
   this.destroyFavorite = function(id) {
     return $http.delete('/api/v1/favorites/'+id+'.json');
   }
-  //gets users favorite posts, home.profile
-  this.getUsersFavorites = function() {
-    ctrl.favorites = this.getFavorites();
-    ctrl.posts = PostService.getPosts();
-  }
 }
 
 angular

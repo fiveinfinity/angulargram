@@ -1,4 +1,4 @@
-function PostsController(posts, categories, FavoriteService, Auth) {
+function PostsController(posts, categories, Auth) {
   var ctrl = this;
   ctrl.posts = posts.data;
   ctrl.categories = categories.data;

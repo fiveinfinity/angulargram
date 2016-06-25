@@ -1,4 +1,4 @@
-function FavoriteController(posts, user) {
+function FavoriteController(posts, user, FavoriteService) {
   var ctrl = this;
   ctrl.user = user;
 
@@ -12,6 +12,7 @@ function FavoriteController(posts, user) {
       });
     });
   }
+
   ctrl.getUsersFavorites();
 }
 

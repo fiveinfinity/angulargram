@@ -8,11 +8,12 @@ var Favorite = {
     var ctrl = this;
 
     ctrl.getUsersFavorites = function() {
-      return ctrl.post.favorites.forEach(function(fav) {
+      ctrl.post.favorites.map(function(fav) {
         if (fav.user_id !== ctrl.user.id) {
           ctrl.post.favorites.splice(fav, 1);
         }
       });
+      return ctrl.post;
     }
 
     ctrl.postFavorite = function(post_id, post) {

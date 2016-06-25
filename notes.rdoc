@@ -1,13 +1,12 @@
 NOTES:
-HTML/CSS
+Continue working onHTML/CSS
 NewController upload takes a long time.
 Possibly Lazy Loader for home.posts once I get enough posts going.
 
 todo:
 add login/register validation
-
-Research:
-logout function - doesn't refresh every time.
+fix logout redirect issue - works sometimes?
+refactor getUsersFavorites to FavoriteService
 
 Auth user, put in resolve:
 Category
