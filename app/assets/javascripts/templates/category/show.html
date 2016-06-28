@@ -1,13 +1,16 @@
-<h1 align="center">{{category.category.title}}</h1>
+<h1 class="ptfont" align="center">#{{category.category.title}}</h1>
 
 <hr>
 
 <div ng-repeat="post in category.category.posts">
   <div class="postpad well">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
-    <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
-    <h5>{{post.comments.length}} COMMENTS</h5>
+    <table width="700px"><tr>
+      <td><h4><a class="ptfont" href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4></td>
+      <td><favorite ng-if="category.user" class="pull-right" post="post" user="category.user"></favorite></td>
+    </tr></table>
 
-    <favorite ng-if="category.user" post="post" user="category.user"></favorite>
+    <h5 class="ptfont">{{post.comments.length}} COMMENTS</h5>
+
   </div>
 </div>

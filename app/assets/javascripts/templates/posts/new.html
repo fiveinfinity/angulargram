@@ -1,12 +1,22 @@
-<form name="form" ng-submit="new.submit()">
-  <input type="file" ng-model="new.post.photo" accept="image/*" base-sixty-four-input>
-  Description: <input type="text" name="description" ng-model="new.post.description" required="required" minlength="10"><br>
+<form name="form" class="form-group upload well" align="center" ng-submit="new.submit()">
+  <h2 class="ptfont">upload</h2>
 
-  <select ng-model="new.post.category_ids" ng-options="category.title for category in new.categories">
+  <input class="upload well" type="file" ng-model="new.post.photo" accept="image/*" base-sixty-four-input>
+
+  <div class="well">
+    Description: <br>
+    <input class="form-control" type="text" name="description" ng-model="new.post.description" required="required" minlength="10">
+  </div>
+
+  <select class="well" ng-model="new.post.category_ids" ng-options="category.title for category in new.categories">
     <option value="">Choose a Category</option>
-  </select><br>
-  Or, create a new category:
-  <input type="text" ng-model="new.post.category"><br>
+  </select>
+
+  <div class="well">
+    Or, create a new category: <br><hr>
+    <input class="form-control" type="text" ng-model="new.post.category"><br>
+  </div>
+
   <input type="submit" value="submit">
 
   <!-- VALIDATION FOR SUBMISSION -->

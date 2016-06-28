@@ -1,8 +1,8 @@
-<h1 align="center">Hello, {{profile.user.email}}</h1>
+<h1 class ="ptfont" align="center">Hello, {{profile.user.email}}</h1>
 
 <hr>
 
-<div class="add-btn">
+<div class="add-btn ptfont pills" align="center">
   <a href="" ui-sref="home.new" class="btn btn-default">Add a Photo</a>
   <a href="" ui-sref="home.favorites({id: profile.user.id})" class="btn btn-default">Favorites</a>
 </div>
@@ -10,10 +10,11 @@
 <hr>
 
 <div ng-repeat="post in profile.posts">
-
   <div class="postpad well" ng-if="post">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
-      <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
-      <button class="btn btn-default" ui-sref="home.edit({id: post.id})">EDIT</button>
+      <table width="700px"><tr>
+        <td><h4><a class="ptfont" href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4></td>
+        <td><button class="btn ptfont pull-right" ui-sref="home.edit({id: post.id})">EDIT</button></td>
+      </tr></table>
   </div>
 </div>

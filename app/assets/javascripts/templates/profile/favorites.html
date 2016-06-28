@@ -1,9 +1,10 @@
 <div ng-repeat="post in favorite.posts" >
-  <div class="col-md-12 postpad" ng-if="post.favorites.length != 0">
+  <div class="postpad well" ng-if="post.favorites.length != 0">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
-    <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
-    <h5>{{post.comments.length}} COMMENTS</h5>
-
-    <favorite post="post" user="favorite.user"></favorite>
+    <table width="700px"><tr>
+      <td><h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4></td>
+      <td><favorite class="pull-right" post="post" user="favorite.user"></favorite></td>
+    </tr></table>
+    <h5 class="ptfont">{{post.comments.length}} COMMENTS</h5>
   </div>
 </div>

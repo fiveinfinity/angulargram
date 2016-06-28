@@ -1,14 +1,13 @@
 NOTES:
-Continue working onHTML/CSS
-NewController upload takes a long time.
-Possibly Lazy Loader for home.posts once I get enough posts going.
 
 todo:
-add login/register validation
-refactor getUsersFavorites to FavoriteService...maybe? Can't find why its not working.
+add user link to their comments, add ability to see users' profiles, no editing or favorites.
+add ability to see comments delete/edit them. (only your comments)
 
-Auth user, put in resolve:
-Category
-Home
-Post
-Posts
+
+######### sending error messages from rails to ng ##########
+validation for photos that are too small, minimum size.
+add login/register validation
+Allow for lost password reset
+
+NewController upload takes a long time, change to SideKiq possibly

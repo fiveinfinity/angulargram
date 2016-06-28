@@ -1,12 +1,12 @@
-<div class="search">
-  <input ng-model="posts.search" placeholder="Search...">
+<div class="form-group search">
+  <input class="form-control" ng-model="posts.search" placeholder="Search...">
 </div>
 
 <hr>
 
 <div class="pills">
   <ul class="nav nav-pills">
-    <li role="presentation" ng-repeat="category in posts.categories"><a href="" ui-sref="home.category({id: category.id})">{{category.title}}</a></li>
+    <li role="presentation" ng-repeat="category in posts.categories"><a class="ptfont" href="" ui-sref="home.category({id: category.id})">{{category.title}}</a></li>
   </ul>
 </div>
 
@@ -14,8 +14,10 @@
 <div ng-repeat="post in posts.posts | filter: posts.search">
   <div class="postpad well">
     <a href="" ui-sref="home.post({id: post.id})"><image src="{{ post.photo }}"></image></a><br>
-    <h4><a href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4>
-    <h5>{{post.comments.length}} COMMENTS</h5>
-    <favorite post="post" user="posts.user"></favorite>
+    <table width="700px"><tr>
+      <td><h4><a class="ptfont" href="" ui-sref="home.post({id: post.id})">{{ post.description }}</a></h4></td>
+      <td><favorite ng-if="posts.user" class="pull-right" post="post" user="posts.user"></favorite></td>
+    </tr></table>
+    <h5 class="ptfont">{{post.comments.length}} COMMENTS</h5>
   </div>
 </div>
