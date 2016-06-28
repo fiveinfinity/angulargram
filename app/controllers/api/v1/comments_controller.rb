@@ -10,8 +10,9 @@ module Api
       end
 
       def create
-        @comment = Comment.new(comment_params, user_id: current_user.id)
+        @comment = Comment.new(comment_params)
         if @comment.save
+          @comment.update(user_id: current_user.id)
           render json: @comment
         end
       end

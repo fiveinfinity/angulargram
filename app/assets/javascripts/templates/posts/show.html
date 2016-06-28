@@ -4,8 +4,15 @@
     <td><h4 class="ptfont">{{post.post.description}}</h4></td>
     <td><favorite ng-if="post.user" class="pull-right" post="post.post" user="post.user"></favorite></td>
   </tr></table>
-  <div ng-repeat="comment in post.post.comments">
-    <div class="ptfont well">{{comment.content}}</div>
+  <div class="ptfont well" ng-repeat="comment in post.post.comments">
+    <table width="660px"><tr>
+      <td><div >{{comment.content}}</div></td>
+      <td class="pull-right"><div ng-repeat="commuser in post.commusers">
+        <div ng-if="commuser.id === comment.user_id">
+          {{commuser.email}}
+        </div>
+      </div></td>
+    </tr></table>
   </div>
 
   <!-- ADD A COMMENT -->

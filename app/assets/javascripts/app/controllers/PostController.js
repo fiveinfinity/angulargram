@@ -1,7 +1,8 @@
-function PostController(post, Auth, $scope, CommentService) {
+function PostController(post, users, Auth, $scope, CommentService) {
   var ctrl = this;
   ctrl.post = post.data;
   ctrl.comment = {};
+  ctrl.commusers = users.data;
 
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
@@ -13,9 +14,9 @@ function PostController(post, Auth, $scope, CommentService) {
 
   ctrl.newComment = function() {
     ctrl.comment.post_id = ctrl.post.id;
-
     CommentService.postComment(ctrl.comment).then(function(comment) {
       ctrl.post.comments.push(comment.data);
+      ctrl.getCommentUsers();
     });
     ctrl.comment = {};
   }

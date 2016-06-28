@@ -57,6 +57,9 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       resolve: {
         post: function($stateParams, PostService) {
           return PostService.getPostById($stateParams.id);
+        },
+        users: function(UserService) {
+          return UserService.getUsers();
         }
       }
     })
