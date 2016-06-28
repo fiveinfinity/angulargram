@@ -21,6 +21,9 @@
 </div>
 
 <div ng-hide="signedIn()">
+  <div class="welcome well ptfont">
+    Welcome to Angulargram. Please <a href="" ui-sref="home.register">register</a> or <a href="" ui-sref="home.login">login</a>.
+  </div>
   <div ui-view="register"></div>
   <div ui-view="login"></div>
 </div>

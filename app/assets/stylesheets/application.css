@@ -44,15 +44,18 @@
    max-width: 300px;
    padding: 15px;
    margin: 0 auto;
-
  }
 
  .upload {
    max-width: 400px;
    padding: 15px;
    margin: 0 auto;
+ }
 
-
+ .welcome {
+   max-width: 350px;
+   padding: 15px;
+   margin: 0 auto;
  }
 
 .logo {
