@@ -4,8 +4,12 @@ function NewController(categories, Auth, $state, PostService) {
   ctrl.categories = categories.data;
 
   ctrl.submit = function() {
-    PostService.newPost(ctrl.post).success(function() {
-      $state.go('home.posts');
+    PostService.newPost(ctrl.post).then(function(post) {
+      if(post.data.size) {
+        ctrl.error = post.data.size[0];
+      } else {
+        $state.go('home.posts');
+      }
     });
   }
 }

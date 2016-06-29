@@ -16,7 +16,6 @@ function PostController(post, users, Auth, $scope, CommentService) {
     ctrl.comment.post_id = ctrl.post.id;
     CommentService.postComment(ctrl.comment).then(function(comment) {
       ctrl.post.comments.push(comment.data);
-      ctrl.getCommentUsers();
     });
     ctrl.comment = {};
   }

@@ -18,7 +18,11 @@ module Api
           @post.assign_category(params)
           @post.update(photo: decode_base64, user_id: current_user.id)
         end
-        render json: @post
+        if @post.errors
+          render json: @post.errors
+        else
+          render json: @post
+        end
       end
 
       def update

@@ -4,8 +4,11 @@ class Post < ActiveRecord::Base
   has_many :favorites
   has_many :post_categories
   has_many :categories, through: :post_categories
+
+  #paperclip validations
   has_attached_file :photo, styles: {original: "700x700>"}
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+  validates_with DimensionsValidator
 
   def assign_category(params)
     if params['category_ids']

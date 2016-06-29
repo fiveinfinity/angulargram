@@ -17,11 +17,17 @@
     <input class="form-control" type="text" ng-model="new.post.category"><br>
   </div>
 
-  <input type="submit" value="submit">
+  <div class-"well">
+    <input class="btn" type="submit" value="submit">
+  </div><br>
 
   <!-- VALIDATION FOR SUBMISSION -->
   <div ng-messages="form.description.$error" ng-if="form.description.$touched">
     <div ng-message="required" class="alert alert-danger validation">A description is required!</div>
     <div ng-message="minlength" class="alert alert-danger validation">Your description must be longer than 10 characters!</div>
+  </div>
+
+  <div ng-if="new.error" class="alert alert-danger validation">
+    {{new.error}}
   </div>
 </form>

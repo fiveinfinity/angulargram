@@ -10,4 +10,6 @@ validation for photos that are too small, minimum size.
 add login/register validation
 Allow for lost password reset
 
-NewController upload takes a long time, change to SideKiq possibly
+Future features:
+Spinner when uploading
+Collections to share between users
