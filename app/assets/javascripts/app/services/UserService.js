@@ -1,6 +1,10 @@
 function UserService($http) {
-  this.getUsers = function(id) {
+  this.getUsers = function() {
     return $http.get('/api/v1/users.json');
+  }
+
+  this.getUser = function(id) {
+    return $http.get('/api/v1/users/'+id+'.json')
   }
 }
 

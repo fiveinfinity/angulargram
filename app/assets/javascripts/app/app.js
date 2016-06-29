@@ -83,8 +83,11 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
         posts: function(PostService) {
           return PostService.getPosts();
         },
-        user: function(Auth) {
+        currentUser: function(Auth) {
           return Auth.currentUser();
+        },
+        user: function(UserService, $stateParams) {
+          return UserService.getUser($stateParams.id)
         }
       }
     })

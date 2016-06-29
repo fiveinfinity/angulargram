@@ -9,7 +9,7 @@
       <td><div >{{comment.content}}</div></td>
       <td class="pull-right"><div ng-repeat="commuser in post.commusers">
         <div ng-if="commuser.id === comment.user_id">
-          {{commuser.email}}
+          <a href="" ui-sref="home.profile({id: commuser.id})">{{commuser.email}}</a>
         </div>
       </div></td>
     </tr></table>

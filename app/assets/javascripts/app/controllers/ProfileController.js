@@ -1,6 +1,7 @@
-function ProfileController(posts, user, PostService) {
+function ProfileController(posts, currentUser, user, PostService) {
   var ctrl = this;
-  ctrl.user = user;
+  ctrl.currentUser = currentUser;
+  ctrl.user = user.data;
   ctrl.posts = PostService.getUsersPosts(posts.data, ctrl.user.id);
 }
 
