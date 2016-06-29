@@ -6,9 +6,4 @@ add ability to see comments delete/edit them. (only your comments)
 
 
 ######### sending error messages from rails to ng ##########
-add login/register validation
 Allow for lost password reset
-
-Future features:
-Spinner when uploading
-Collections to share between users
