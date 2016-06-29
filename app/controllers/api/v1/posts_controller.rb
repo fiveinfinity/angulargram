@@ -20,6 +20,7 @@ module Api
         end
         if @post.errors
           render json: @post.errors
+          @post.destroy
         else
           render json: @post
         end

@@ -6,7 +6,6 @@ add ability to see comments delete/edit them. (only your comments)
 
 
 ######### sending error messages from rails to ng ##########
-validation for photos that are too small, minimum size.
 add login/register validation
 Allow for lost password reset
 
