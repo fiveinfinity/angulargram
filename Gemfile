@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
 
 gem 'pry'
 gem 'devise'
@@ -7,7 +8,11 @@ gem 'responders'
 gem 'angular-rails-templates'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'paperclip'
+
+# Heroku gems (servers & 12factor)
 gem 'unicorn'
+gem 'puma'
+gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record

@@ -3,3 +3,6 @@ NOTES:
 Future Features:
 Allow for lost password reset
 Create Collection for users to share with each other
+
+
+web: bundle exec unicorn -p $PORT -E $RACK_ENV
