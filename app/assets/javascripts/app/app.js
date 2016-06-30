@@ -1,5 +1,5 @@
 angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.base64', 'ngMessages'])
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
     //HOME BASE- USING ABSTRACT TO RENDER CHILD VIEW IN INDEX.
     .state('home', {
@@ -141,4 +141,4 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       }
     });
     $urlRouterProvider.otherwise('/');
-  });
+  }]);
