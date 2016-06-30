@@ -7,7 +7,6 @@ gem 'responders'
 gem 'angular-rails-templates'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'paperclip'
-gem 'rails_12factor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
