@@ -10,6 +10,7 @@ gem 'paperclip'
 
 # Heroku gems (servers & 12factor)
 gem 'puma'
+gem 'dotenv-rails'
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
