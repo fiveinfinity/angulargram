@@ -4,12 +4,12 @@ function EditController(post, $state, PostService) {
 
   ctrl.updatePost = function() {
     PostService.updatePost(ctrl.post.id, ctrl.post);
-    $state.go('home.profile');
+    $state.go('home.posts');
   }
 
   ctrl.delete = function() {
     PostService.deletePost(ctrl.post.id);
-    $state.go('home.profile');
+    $state.go('home.posts');
   }
 }
 

@@ -1,0 +1,9 @@
+<div ng-repeat="comment in comments.comments">
+  <div ng-if="comment.user_id === user.id" class="postpad well">
+    <form ng-submit="comments.update(comment.id, comment.content)">
+      <input type="text" size="50" placeholder="{{comment.content}}" ng-model="comment.content">
+      <input class="btn btn-default" type="submit" value="Edit Comment">
+      <button class="btn btn-default" ng-click="comments.delete(comment)">Delete Comment</button>
+    </form>
+  </div>
+</div>

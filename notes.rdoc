@@ -1,7 +1,6 @@
 NOTES:
 
 todo:
-add user link to their comments, add ability to see users' profiles, no editing or favorites.
 add ability to see comments delete/edit them. (only your comments)
 
 Future Features:

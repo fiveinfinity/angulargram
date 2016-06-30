@@ -126,6 +126,19 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
           return Auth.currentUser();
         }
       }
+    })
+    .state('home.comments', {
+      url: 'profile/:id/comments',
+      templateUrl: 'profile/comments.html',
+      controller: 'CommentsController as comments',
+      resolve: {
+        comments: function(CommentService) {
+          return CommentService.getComments();
+        },
+        user: function(Auth) {
+          return Auth.currentUser();
+        }
+      }
     });
     $urlRouterProvider.otherwise('/');
   });
