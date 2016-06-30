@@ -1,5 +1,11 @@
 == README
-This is the README for ANGULARGRAM -- a variation on Instagram using Rails + Angular.
+ANGULARGRAM -- a variation on Instagram using Rails + Angular.
+
+This application is using:
+ Devise
+ Paperclip
+ Angular
+ Rails as a backend API.
 
 * Ruby version
 This web application was built on ruby 2.2.3p173 (2015-08-18 revision 51636).
