@@ -1,11 +1,11 @@
 function PostService($http) {
   //home.posts, home.profile
   this.getPosts = function() {
-    return $http.get('http://localhost:3000/api/v1/posts.json');
+    return $http.get('/api/v1/posts.json');
   }
   //home.post
   this.getPostById = function(id) {
-    return $http.get('http://localhost:3000/api/v1/posts/'+id+'.json');
+    return $http.get('/api/v1/posts/'+id+'.json');
   }
   //home.edit
   this.updatePost = function(id, post) {
