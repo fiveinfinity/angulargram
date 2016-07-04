@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.base64', 'ngMessages'])
+angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.base64', 'ngMessages', 'angular-loading-bar'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
     //HOME BASE- USING ABSTRACT TO RENDER CHILD VIEW IN INDEX.

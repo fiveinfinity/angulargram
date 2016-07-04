@@ -1,3 +1,7 @@
+<link rel='stylesheet' href='build/loading-bar.min.css' type='text/css' media='all' />
+<script type='text/javascript' src='build/loading-bar.min.js'></script>
+
+
 <form name="form" class="form-group upload well" align="center" ng-submit="new.submit()">
   <h2 class="ptfont">upload</h2>
 
@@ -5,7 +9,7 @@
 
   <div class="well">
     Description: <br>
-    <input class="form-control" type="text" name="description" ng-model="new.post.description" required="required" minlength="10">
+    <input class="form-control" type="text" name="description" ng-model="new.post.description" required="required" minlength="3">
   </div>
 
   <select class="well" ng-model="new.post.category_ids" ng-options="category.title for category in new.categories">
@@ -24,7 +28,7 @@
   <!-- VALIDATION FOR SUBMISSION -->
   <div ng-messages="form.description.$error" ng-if="form.description.$touched">
     <div ng-message="required" class="alert alert-danger validation">A description is required!</div>
-    <div ng-message="minlength" class="alert alert-danger validation">Your description must be longer than 10 characters!</div>
+    <div ng-message="minlength" class="alert alert-danger validation">Your description must be longer than 3 characters!</div>
   </div>
 
   <div ng-if="new.error" class="alert alert-danger validation">

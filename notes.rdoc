@@ -4,7 +4,5 @@ Create Collection for users to share with each other
 
 
 Heroku:
-Upload is super slow. Add a spinner.  http://chieffancypants.github.io/angular-loading-bar/#
 Set categories to check uniq!, throw error for other categories. Delete category if no posts in it.
-Resize photos (changed && to || in DimensionsValidator.)
 Set page to show #random images for non users before sign up.
