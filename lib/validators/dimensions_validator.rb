@@ -6,7 +6,7 @@ class DimensionsValidator < ActiveModel::Validator
       width = dimensions.width
       height = dimensions.height
 
-      if width < 700 && height < 700
+      if width < 700 || height < 700
         record.errors['size'] << " Dimensions are too small. For a good quality photo please upload a larger image. Minimum width: 700px, minimum height: 700px"
       end
     end
