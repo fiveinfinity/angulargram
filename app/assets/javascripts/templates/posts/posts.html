@@ -6,7 +6,7 @@
 
 <div class="pills">
   <ul class="nav nav-pills">
-    <li role="presentation" ng-repeat="category in posts.categories"><a class="ptfont" href="" ui-sref="home.category({id: category.id})">{{category.title}}</a></li>
+    <li role="presentation" ng-repeat="category in posts.categories"><a ng-if="category.posts.length > 0" class="ptfont" href="" ui-sref="home.category({id: category.id})">{{category.title}}</a></li>
   </ul>
 </div>
 

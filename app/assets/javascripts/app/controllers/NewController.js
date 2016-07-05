@@ -12,6 +12,14 @@ function NewController(categories, Auth, $state, PostService) {
       }
     });
   }
+  // CHECKS IF NEW CATEGORY IS UNIQUE
+  ctrl.duplicateCategory = function(category) {
+    for(var i in ctrl.categories) {
+      if(ctrl.categories[i].title == category)
+      return false;
+    }
+    return true;
+  }
 }
 
 angular

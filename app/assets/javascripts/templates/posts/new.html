@@ -2,36 +2,36 @@
 <script type='text/javascript' src='build/loading-bar.min.js'></script>
 
 
-<form name="form" class="form-group upload well" align="center" ng-submit="new.submit()">
+<form name="form" class="form-group upload well" align="center" novalidate ng-submit="form.$valid && new.submit()">
   <h2 class="ptfont">upload</h2>
-
-  <input class="upload well" type="file" ng-model="new.post.photo" accept="image/*" base-sixty-four-input>
-
+  <input class="upload well" type="file" name="photo" ng-model="new.post.photo" accept="image/*" base-sixty-four-input required>
   <div class="well">
     Description: <br>
     <input class="form-control" type="text" name="description" ng-model="new.post.description" required="required" minlength="3">
   </div>
-
-  <select class="well" ng-model="new.post.category_ids" ng-options="category.title for category in new.categories">
+  <select class="well" ng-model="new.post.category_ids" name="categories" ng-options="category.title for category in new.categories" >
     <option value="">Choose a Category</option>
   </select>
-
   <div class="well">
     Or, create a new category: <br><hr>
-    <input class="form-control" type="text" ng-model="new.post.category"><br>
+    <input class="form-control" type="text" name="category" ng-model="new.post.category"  category><br>
   </div>
-
   <div class-"well">
     <input class="btn" type="submit" value="submit">
   </div><br>
 
   <!-- VALIDATION FOR SUBMISSION -->
+
   <div ng-messages="form.description.$error" ng-if="form.description.$touched">
-    <div ng-message="required" class="alert alert-danger validation">A description is required!</div>
-    <div ng-message="minlength" class="alert alert-danger validation">Your description must be longer than 3 characters!</div>
+    <div ng-message="required" class="alert alert-danger validation">A description is required</div>
+    <div ng-message="minlength" class="alert alert-danger validation">Your description must be longer than 3 characters</div>
   </div>
 
   <div ng-if="new.error" class="alert alert-danger validation">
     {{new.error}}
+  </div>
+
+  <div ng-show="form.category.$dirty && form.category.$error.duplicate" class="alert alert-danger validation">
+    Category is already taken
   </div>
 </form>

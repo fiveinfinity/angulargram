@@ -1,8 +1,7 @@
 Future Features:
-Allow for lost password reset
 Create Collection for users to share with each other
 
 
 Heroku:
-Set categories to check uniq!, throw error for other categories. Delete category if no posts in it.
-Set page to show #random images for non users before sign up.
+Set page to show posts' images for non users before sign up. Just photo and title, no links in a div#well.
+Allow for lost password reset
