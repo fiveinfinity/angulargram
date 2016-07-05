@@ -1,4 +1,7 @@
-function HomeController($scope, Auth, $state) {
+function HomeController($scope, Auth, $state, posts) {
+  var ctrl = this;
+  ctrl.posts = posts.data;
+  ctrl.state = $state;
 
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;

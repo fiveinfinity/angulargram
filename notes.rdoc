@@ -3,5 +3,4 @@ Create Collection for users to share with each other
 
 
 Heroku:
-Set page to show posts' images for non users before sign up. Just photo and title, no links in a div#well.
 Allow for lost password reset

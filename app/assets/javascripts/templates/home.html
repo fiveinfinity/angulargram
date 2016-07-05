@@ -26,4 +26,16 @@
   </div>
   <div ui-view="register"></div>
   <div ui-view="login"></div>
+  <div ng-hide="home.state.includes('home.login')">
+    <div  ng-hide="home.state.includes('home.register')">
+      <div ng-repeat="post in home.posts">
+        <div class="postpad well">
+          <image src="{{ post.photo }}"></image><br>
+          <table width="700px"><tr>
+            <td><h4 class="ptfont">{{ post.description }}</h4></td>
+          </tr></table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

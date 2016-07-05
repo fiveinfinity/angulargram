@@ -8,7 +8,12 @@ angular.module('app', ['ui.router', 'ngResource', 'templates', 'Devise', 'naif.b
       views: {
         "": {
           templateUrl: 'home.html',
-          controller: 'HomeController'
+          controller: 'HomeController as home'
+        }
+      },
+      resolve: {
+        posts: function(PostService) {
+          return PostService.getPosts();
         }
       }
     })
