@@ -1,6 +1,0 @@
-Future Features:
-Create Collection for users to share with each other
-
-
-Heroku:
-Allow for lost password reset
