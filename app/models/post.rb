@@ -6,7 +6,11 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :post_categories
 
   #paperclip validations
-  has_attached_file :photo, styles: {original: "700x700>"}
+  has_attached_file :photo, styles: {original: "700x700>"},
+  :storage => :s3,
+  :s3_credentials => "#{Rails.root}/config/aws.yml",
+  :path => "/images/:extension",
+  :bucket => 'angulargramphotos'
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   validates_with DimensionsValidator
 
