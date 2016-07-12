@@ -7,6 +7,7 @@ gem 'responders'
 gem 'angular-rails-templates'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'paperclip'
+gem 'dotenv-rails'
 gem 'aws-sdk', '< 2.0'
 
 # Heroku gems (servers & 12factor)

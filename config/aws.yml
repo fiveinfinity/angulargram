@@ -1,9 +1,0 @@
-development:
-  access_key_id: AKIAJJ5XRXL4STFQSOYQ
-  secret_access_key: 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
-  bucket: angulargram
-
-production:
-  access_key_id: AKIAJJ5XRXL4STFQSOYQ
-  secret_access_key: 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
-  bucket: angulargram
